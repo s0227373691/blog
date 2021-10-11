@@ -20,27 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"s0227373691.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
-<meta name="description" content="1.Auto Rename Tag2.Live Server3.Prettier - Code formatter4.Todo Tree5.vscode-styled-components">
+<meta name="description" content="JavaScript EngineJavaScript原始碼會經過 語法分析器 (parser) 解析後產生 語法抽象樹 (AST, Abstract Syntax Tree)再將AST交由 直譯器 (interpreter) 產生 機械碼 (machine code) Event QueueEvent Loop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用vscode套件">
-<meta property="og:url" content="https://s0227373691.github.io/blog/2021/10/03/%E5%B8%B8%E7%94%A8vscode%E5%A5%97%E4%BB%B6/index.html">
+<meta property="og:title" content="前端概念">
+<meta property="og:url" content="https://s0227373691.github.io/blog/2021/10/11/%E5%89%8D%E7%AB%AF%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="Elmer&#39;s Blog">
-<meta property="og:description" content="1.Auto Rename Tag2.Live Server3.Prettier - Code formatter4.Todo Tree5.vscode-styled-components">
+<meta property="og:description" content="JavaScript EngineJavaScript原始碼會經過 語法分析器 (parser) 解析後產生 語法抽象樹 (AST, Abstract Syntax Tree)再將AST交由 直譯器 (interpreter) 產生 機械碼 (machine code) Event QueueEvent Loop">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-03T11:21:58.000Z">
-<meta property="article:modified_time" content="2021-10-10T14:53:27.238Z">
+<meta property="article:published_time" content="2021-10-10T19:43:59.000Z">
+<meta property="article:modified_time" content="2021-10-10T22:17:48.073Z">
 <meta property="article:author" content="Elmer">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://s0227373691.github.io/blog/2021/10/03/%E5%B8%B8%E7%94%A8vscode%E5%A5%97%E4%BB%B6/">
+<link rel="canonical" href="https://s0227373691.github.io/blog/2021/10/11/%E5%89%8D%E7%AB%AF%E6%A6%82%E5%BF%B5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://s0227373691.github.io/blog/2021/10/03/%E5%B8%B8%E7%94%A8vscode%E5%A5%97%E4%BB%B6/","path":"2021/10/03/常用vscode套件/","title":"常用vscode套件"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://s0227373691.github.io/blog/2021/10/11/%E5%89%8D%E7%AB%AF%E6%A6%82%E5%BF%B5/","path":"2021/10/11/前端概念/","title":"前端概念"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>常用vscode套件 | Elmer's Blog</title>
+<title>前端概念 | Elmer's Blog</title>
   
 
 
@@ -94,7 +94,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -107,6 +107,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-Engine"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Engine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Queue"><span class="nav-number">2.</span> <span class="nav-text">Event Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Loop"><span class="nav-number">3.</span> <span class="nav-text">Event Loop</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -119,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,7 +164,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://s0227373691.github.io/blog/2021/10/03/%E5%B8%B8%E7%94%A8vscode%E5%A5%97%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://s0227373691.github.io/blog/2021/10/11/%E5%89%8D%E7%AB%AF%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -176,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          常用vscode套件
+          前端概念
         </h1>
 
         <div class="post-meta-container">
@@ -186,16 +187,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-10-03 19:21:58" itemprop="dateCreated datePublished" datetime="2021-10-03T19:21:58+08:00">2021-10-03</time>
+      <time title="Created: 2021-10-11 03:43:59 / Modified: 06:17:48" itemprop="dateCreated datePublished" datetime="2021-10-11T03:43:59+08:00">2021-10-11</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-10 22:53:27" itemprop="dateModified" datetime="2021-10-10T22:53:27+08:00">2021-10-10</time>
-      </span>
 
   
 </div>
@@ -207,8 +202,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>1.Auto Rename Tag<br>2.Live Server<br>3.Prettier - Code formatter<br>4.Todo Tree<br>5.vscode-styled-components</p>
-
+        <h2 id="JavaScript-Engine"><a href="#JavaScript-Engine" class="headerlink" title="JavaScript Engine"></a>JavaScript Engine</h2><p>JavaScript原始碼會經過 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90">語法分析器 (parser)</a> 解析後<br>產生 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%8A%BD%E8%B1%A1%E8%AA%9E%E6%B3%95%E6%A8%B9">語法抽象樹 (AST, <em>Abstract Syntax Tree</em>)</a><br>再將AST交由 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E7%9B%B4%E8%AD%AF%E5%99%A8">直譯器 (interpreter)</a> 產生 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80">機械碼 (machine code)</a></p>
+<h2 id="Event-Queue"><a href="#Event-Queue" class="headerlink" title="Event Queue"></a>Event Queue</h2><h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2>
     </div>
 
     
@@ -221,14 +216,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2021/10/03/Hexo%20%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="prev" title="Hexo 一些常見問題">
-                  <i class="fa fa-chevron-left"></i> Hexo 一些常見問題
+                <a href="/blog/2021/10/10/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2021/10/10/hello-world/" rel="next" title="Hello World">
-                  Hello World <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
