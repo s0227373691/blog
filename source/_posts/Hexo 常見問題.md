@@ -12,9 +12,8 @@ tags:
 url: https://帳號.github.io/專案名稱/
 root: /專案名稱/
 
-Ex:
-
 ```yml
+# _config.yml
 url: https://s0227373691.github.io/blog/
 root: /blog/
 ```
