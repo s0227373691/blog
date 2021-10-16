@@ -115,12 +115,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -149,6 +149,89 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://s0227373691.github.io/blog/2021/10/17/%E4%BD%9C%E5%93%81%E9%9B%86%20-%20%E4%BD%BF%E7%94%A8React%E6%A8%A1%E4%BB%BFETQ%20Amsterdam/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Elmer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Elmer's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2021/10/17/%E4%BD%9C%E5%93%81%E9%9B%86%20-%20%E4%BD%BF%E7%94%A8React%E6%A8%A1%E4%BB%BFETQ%20Amsterdam/" class="post-title-link" itemprop="url">作品集 - 使用React模仿ETQ Amsterdam</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-10-17 01:41:03 / Modified: 02:36:45" itemprop="dateCreated datePublished" datetime="2021-10-17T01:41:03+08:00">2021-10-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="作品相關連結"><a href="#作品相關連結" class="headerlink" title="作品相關連結"></a>作品相關連結</h2><p><a target="_blank" rel="noopener" href="https://mimic-web-etq-amsterdam.herokuapp.com/"><code>作品網站</code></a><br><a target="_blank" rel="noopener" href="https://github.com/s0227373691/mimic-web-ETQ-Amsterdam"><code>原始碼</code></a></p>
+<p>&nbsp;</p>
+<h2 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h2><p>下載 <code>express-generator</code> 產生後端環境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g express-generator</span><br><span class="line"></span><br><span class="line">$ express --version // 確認版本</span><br><span class="line">4.16.1</span><br><span class="line"></span><br><span class="line">$ express -e --ejs mimic-web-ETQ-Amsterdam // 產生 mimic-web-ETQ-Amsterdam 專案</span><br></pre></td></tr></table></figure>
+
+<p>產生 <code>React</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app client</span><br></pre></td></tr></table></figure>
+
+
+<p>&nbsp;</p>
+<h2 id="設定Port"><a href="#設定Port" class="headerlink" title="設定Port"></a>設定Port</h2><p>為避免Express與React使用同一個port，這邊我將Express port設為8000，React維持3000.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./bin/www</span></span><br><span class="line"><span class="keyword">var</span> port = normalizePort(process.env.PORT || <span class="string">&quot;8000&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="開發環境設定"><a href="#開發環境設定" class="headerlink" title="開發環境設定"></a><code>開發環境設定</code></h3><p>在開發過程中使用 <code>localhost:3000</code> 為主要呈現網站port，另外在 <code>package.json</code> 新增proxy去取得與 <code>localhost:8000</code> 溝通管道.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="string">&quot;proxy&quot;</span>: <span class="string">&quot;http://localhost:8000/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="部署環境設定"><a href="#部署環境設定" class="headerlink" title="部署環境設定"></a><code>部署環境設定</code></h3><p>當訪問網站時，透過 <code>localhost:8000</code> 回傳打包好的前端畫面.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>)));</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/*&#x27;</span>, <span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.sendFile(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
