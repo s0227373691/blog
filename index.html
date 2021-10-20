@@ -249,10 +249,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-10-17 01:41:03 / Modified: 02:36:45" itemprop="dateCreated datePublished" datetime="2021-10-17T01:41:03+08:00">2021-10-17</time>
+      <time title="Created: 2021-10-17 01:41:03" itemprop="dateCreated datePublished" datetime="2021-10-17T01:41:03+08:00">2021-10-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-21 05:39:22" itemprop="dateModified" datetime="2021-10-21T05:39:22+08:00">2021-10-21</time>
+      </span>
 
   
 </div>
@@ -264,7 +270,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="作品相關連結"><a href="#作品相關連結" class="headerlink" title="作品相關連結"></a>作品相關連結</h2><p><a target="_blank" rel="noopener" href="https://mimic-web-etq-amsterdam.herokuapp.com/"><code>作品網站</code></a><br><a target="_blank" rel="noopener" href="https://github.com/s0227373691/mimic-web-ETQ-Amsterdam"><code>原始碼</code></a></p>
+          <!-- @format -->
+
+<h2 id="作品相關連結"><a href="#作品相關連結" class="headerlink" title="作品相關連結"></a>作品相關連結</h2><p><a target="_blank" rel="noopener" href="https://mimic-web-etq-amsterdam.herokuapp.com/"><code>作品網站</code></a><br><a target="_blank" rel="noopener" href="https://github.com/s0227373691/mimic-web-ETQ-Amsterdam"><code>原始碼</code></a></p>
 <p>&nbsp;</p>
 <h2 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h2><p>下載 <code>express-generator</code> 產生後端環境</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g express-generator</span><br><span class="line"></span><br><span class="line">$ express --version // 確認版本</span><br><span class="line">4.16.1</span><br><span class="line"></span><br><span class="line">$ express -e --ejs mimic-web-ETQ-Amsterdam // 產生 mimic-web-ETQ-Amsterdam 專案</span><br></pre></td></tr></table></figure>
@@ -272,17 +280,28 @@
 <p>產生 <code>React</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx create-react-app client</span><br></pre></td></tr></table></figure>
 
-
 <p>&nbsp;</p>
-<h2 id="設定Port"><a href="#設定Port" class="headerlink" title="設定Port"></a>設定Port</h2><p>為避免Express與React使用同一個port，這邊我將Express port設為8000，React維持3000.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./bin/www</span></span><br><span class="line"><span class="keyword">var</span> port = normalizePort(process.env.PORT || <span class="string">&quot;8000&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="設定-Port"><a href="#設定-Port" class="headerlink" title="設定 Port"></a>設定 Port</h2><p>為避免 Express 與 React 使用同一個 port，這邊我將 Express port 設為 8000，React 維持 3000.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./bin/www</span></span><br><span class="line"><span class="keyword">var</span> port = normalizePort(process.env.PORT || <span class="string">&#x27;8000&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<h3 id="開發環境設定"><a href="#開發環境設定" class="headerlink" title="開發環境設定"></a><code>開發環境設定</code></h3><p>在開發過程中使用 <code>localhost:3000</code> 為主要呈現網站port，另外在 <code>package.json</code> 新增proxy去取得與 <code>localhost:8000</code> 溝通管道.</p>
+<h3 id="開發環境設定"><a href="#開發環境設定" class="headerlink" title="開發環境設定"></a><code>開發環境設定</code></h3><p>在開發過程中使用 <code>localhost:3000</code> 為主要呈現網站 port，另外在 <code>package.json</code> 新增 proxy 去取得與 <code>localhost:8000</code> 溝通管道.</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"><span class="string">&quot;proxy&quot;</span>: <span class="string">&quot;http://localhost:8000/&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="部署環境設定"><a href="#部署環境設定" class="headerlink" title="部署環境設定"></a><code>部署環境設定</code></h3><p>當訪問網站時，透過 <code>localhost:8000</code> 回傳打包好的前端畫面.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>)));</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/*&#x27;</span>, <span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.sendFile(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>)));</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/*&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.sendFile(path.join(__dirname, <span class="string">&#x27;client/build&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<p>進入部署階段，要送上去 <code>Heroku</code> 之前要先新增幾項指令:</p>
+<ul>
+<li><code>build-client</code> 到 client 資料夾進行 <code>React</code> 打包</li>
+<li><code>install-client</code> 到 client 資料夾進行安裝 <code>node_modules</code></li>
+<li><code>heroku-postbuild</code> 執行上述兩項指令</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;build-client&quot;</span>: <span class="string">&quot;cd client &amp;&amp; npm run build&quot;</span>,</span><br><span class="line"><span class="string">&quot;install-client&quot;</span>: <span class="string">&quot;cd client &amp;&amp; npm install&quot;</span>,</span><br><span class="line"><span class="string">&quot;heroku-postbuild&quot;</span>: <span class="string">&quot;npm run install-client &amp;&amp; npm run build-client&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p>到這邊 Heroku 就能顯示網站的畫面啦~~~</p>
+<p><img src="https://i.imgur.com/oNNkidn.png" alt="p1"></p>
+<p>&nbsp;</p>
+<h2 id="畫面製作"><a href="#畫面製作" class="headerlink" title="畫面製作"></a>畫面製作</h2><p><img src="https://i.imgur.com/PPRgKlW.png" alt="p2"><br><img src="https://i.imgur.com/zABeCvh.jpg" alt="p3"><br><img src="https://i.imgur.com/66U73dU.png" alt="p4"><br><img src="https://i.imgur.com/obKz1AL.jpg" alt="p5"><br><img src="https://i.imgur.com/u4pHT31.png" alt="p6"></p>
 
       
     </div>
